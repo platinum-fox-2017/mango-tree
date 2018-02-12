@@ -74,9 +74,7 @@ class MangoTree {
     }
     // console.log(this._fruits[0])
     return this._harvested = `${fruitsCount} (${fruitsQuality.good} good, ${fruitsQuality.bad} bad)`
-
   }
-
 }
 
 class Mango {
