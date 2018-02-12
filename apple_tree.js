@@ -1,14 +1,13 @@
 "use strict"
 
-// release 0
+// release 1
 
-class MangoTree {
+class AppleTree {
 
-  // Initialize a new MangoTree
   constructor() {
     this._age = 0
-    this._mature = 5
-    this._maxAge = 20
+    this._mature = 4
+    this._maxAge = 15    
     this._height = 0
     this._fruits = []
     this._harvested = []
@@ -36,33 +35,27 @@ class MangoTree {
 
   }
 
-
-  // Get current states here
-
-  // Grow the tree
   grow() {
     this._age++
     if(this._age < 15){
       this._height+=Math.round(Math.random()*30)
     }
     if(this._age>=this._mature && this._age<=this._maxAge){
-      this.produceMangoes()
+      this.produceApple()
     }else if(this._age>this._maxAge){
       this._healtyStatus = false     
     }
   }
 
-  // Produce some mangoes
-  produceMangoes() {
+  produceApple() {
     let random = Math.floor(Math.random()*20)
     for(let i = 0; i<random; i++){
-      let mango = new Mango()
-      this._fruits.push(mango)
+      let apple = new Apple()
+      this._fruits.push(apple)
     }
     return this._fruits
   }
 
-  // Get some fruits
   harvest() {
     let countGood = 0
     let countBad = 0
@@ -79,8 +72,7 @@ class MangoTree {
   }
 }
 
-class Mango {
-  // Produce a mango
+class Apple {
   constructor() {
     this.quality = this.checkQuality()
   }
@@ -95,18 +87,14 @@ class Mango {
   }
 }
 
-
-  // driver code untuk release 0
-   let mangoTree = new MangoTree()
+  // driver code untuk release 1
+   let appleTree = new AppleTree()
    do {
-     mangoTree.grow();
-     mangoTree.harvest();
-     console.log(`[Year ${mangoTree.age} Report] Height = ${mangoTree.height/100} M | Fruits harvested = ${mangoTree.harvested}`)
-   } while (mangoTree.healtyStatus != false)
+    appleTree.grow();
+    appleTree.harvest();
+     console.log(`[Year ${appleTree.age} Report] Height = ${appleTree.height/100} M | Fruits harvested = ${appleTree.harvested}`)
+   } while (appleTree.healtyStatus != false)
 
-// Release 1
-class AppleTree {}
-class Apple {}
 
 // Release 2
 class FruitTree {}
