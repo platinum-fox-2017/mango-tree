@@ -12,7 +12,7 @@ class Pear extends Fruit{
 }
 
 let pearTree = new PearTree()
-console.log('LETS HARVEST SOME MANGO')
+console.log('LETS HARVEST SOME PEAR')
 do {
    pearTree.grow();
    pearTree.produceFruits();
