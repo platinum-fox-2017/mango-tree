@@ -66,11 +66,10 @@ class MangoTree {
     let good = 0
     let bad = 0
     for(let i=0; i<this._max_fruits; i++){
-      let random = Math.round(Math.random()*10)
-      if(random > 3){
+      if(this._fruits[i]._quality === 'good'){
         good++
       }
-      else if(random < 4){
+      else {
         bad++
       }
     }
@@ -84,7 +83,17 @@ class MangoTree {
 class Mango {
   // Produce a mango
   constructor() {
-    this.quality = null
+    this._quality = this.quality()
+  }
+
+  quality(){
+    let random = Math.round(Math.random()*10)
+    if(random > 3){
+      return 'good'
+    }
+    else if(random < 4){
+      return 'bad'
+    }
   }
 }
 
