@@ -34,7 +34,7 @@ class MangoTree {
   }
 
   get harvested() {
-    return this.harvest()
+    return this._harvested
   }
 
 
@@ -95,7 +95,7 @@ class Mango {
     mangoTree.grow();
     mangoTree.produceMangoes();
     mangoTree.harvest();
-    console.log(`[Year ${mangoTree.age} Report] Height = ${mangoTree.height} | Fruits harvested = ${mangoTree._harvested}`)
+    console.log(`[Year ${mangoTree.age} Report] Height = ${mangoTree.height} | Fruits harvested = ${mangoTree.harvested}`)
    } while (mangoTree.healthyStatus != false)
    console.log('The tree has met its end! :sad:')
 
