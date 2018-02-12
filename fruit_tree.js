@@ -48,8 +48,17 @@ class FruitTree {
     this.totalFruit.length = 0
     this.harvestFruit = `${countRipe+countRotten} fruits (${countRipe} ripe, ${countRotten} rotten)`
     return this.harvestFruit
+	}
+	 // Produce some mangoes
+	 produceFruits() {
+    let random = Math.ceil(Math.random()*this.maxAge*5)
+    for(let i =0;i<random;i++){
+      let fruit = new Fruit()
+      this.totalFruit.push(fruit)
+    }
+    return this.totalFruit
   }
-  }
+}
   
   class Fruit {
     constructor() {
@@ -66,4 +75,4 @@ class FruitTree {
     }
   }
 
-module.exports = {FruitTree,Fruit}
+module.exports = FruitTree

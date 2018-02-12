@@ -1,5 +1,5 @@
 "use strict"
-const {FruitTree,Fruit} = require('./fruit_tree')
+const FruitTree = require('./fruit_tree')
 
 // release 0
 
@@ -18,32 +18,16 @@ class PearTree extends FruitTree {
       this.heightTree+= Math.floor(Math.random()*60) //cm
     }
     if(this.ageTree >= this.matureAge && this.ageTree < this.maxAge && this.heightTree>60){
-      this.producePears() 
+      this.produceFruits() 
     } else if(this.ageTree >= this.maxAge){
       this.healthy = false
     }
 
   }
 
-  producePears() {
-    let random = Math.ceil(Math.random()*this.maxAge*5)
-    for(let i =0;i<random;i++){
-      let pear = new Pear()
-      this.totalFruit.push(pear)
-    }
-    return this.totalFruit
-  }
-
 
 }
 
-class Pear extends Fruit {
-  // Produce a mango
-  constructor() {
-    super()
-  
-  }
-}
 
 module.exports = PearTree
 
