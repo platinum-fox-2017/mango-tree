@@ -5,8 +5,9 @@ class FruitTree {
 
   constructor() {
     this._age = 0;
-    this._minAgeToHarvest = 5;
-    this._maxAge = 19;
+    this._minAgeToProduce = 0;
+    this._maxAge = 0;
+    this._probabilityNumber = 0;
     this._height = 0;
     this._fruits = [];
     this._healty = true;
@@ -44,10 +45,12 @@ class FruitTree {
   }
 
   produceFruit() {
-    let random = Math.floor(Math.random()*20);
-    for(let i = 0; i<random; i++){
-      let mango = new Fruit();
-      this._fruits.push(mango);
+    if(this._age >= this._minAgeToProduce){
+      let random = Math.floor(1+(Math.random()*this._probabilityNumber));
+      for(let i = 0; i<random; i++){
+        let mango = new Fruit();
+        this._fruits.push(mango);
+      }
     }
     return this._fruits;
   }
@@ -63,7 +66,11 @@ class FruitTree {
       }
     }
     this._fruits.length = 0;
-    this._harvested = `${goodQuality+badQuality} (${goodQuality} good, ${badQuality} bad)`
+    if(goodQuality+badQuality === 0){
+      this._harvested = `${goodQuality+badQuality}`
+    }else{
+      this._harvested = `${goodQuality+badQuality} (${goodQuality} good, ${badQuality} bad)`
+    }
     return this._harvested
   }
 
@@ -91,8 +98,9 @@ class MangoTree extends FruitTree{
   // Initialize a new MangoTree
   constructor() {
     super();
-    this._minAgeToHarvest = 5;
+    this._minAgeToProduce = 5;
     this._maxAge = 19;
+    this._probabilityNumber = 20;
   }
 }
 
@@ -100,8 +108,9 @@ class AppleTree extends FruitTree {
   // Initialize a new AppleTree
   constructor() {
     super();
-    this._minAgeToHarvest = 2;
+    this._minAgeToProduce = 2;
     this._maxAge = 14;
+    this._probabilityNumber = 40;
   }
 }
 
