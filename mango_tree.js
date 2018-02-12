@@ -5,24 +5,33 @@
 class MangoTree {
 
   // Initialize a new MangoTree
-  constructor() {
+  constructor(obj) {
+    this._age = obj.age
+    this._height = obj.height
+    this._fruits = obj.fruits
+    this._healthyStatus = obj.healtyStatus
+    this._harvested = obj.harvested
+
   }
 
   get age() {
+    return this._age
   }
 
   get height() {
-
+    return this._height
   }
 
   get fruits() {
+    return this._fruits
   }
 
   get healtyStatus() {
+    return this._healthyStatus
   }
 
   get harvested() {
-
+    return this._harvested
   }
 
 
