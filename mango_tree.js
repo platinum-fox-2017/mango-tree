@@ -1,7 +1,5 @@
 "use strict"
 
-// release 0
-// Release 2
 class FruitTree {
   constructor() {
     this._age = 0
@@ -44,7 +42,6 @@ class FruitTree {
     }
   }
 
-  // Produce some fruits
   produceFruits() {
     let total = Math.round(Math.random()*30)
     for(let i = 0; i < total; i++) {
@@ -54,7 +51,6 @@ class FruitTree {
     return this._fruits
   }
 
-  // Get some fruits
   harvest() {
     let good = 0
     let bad = 0
@@ -86,7 +82,6 @@ class Fruit {
 
 
 class MangoTree extends FruitTree {
-  // Initialize a new MangoTree
   constructor() {
     super()
     this._mature = 7
@@ -100,9 +95,7 @@ class Mango extends Fruit {
   }
 }
 
-// Release 1
 class AppleTree extends FruitTree {
-  // Initialize a new AppleTree
   constructor() {
     super()
     this._mature = 5
@@ -113,20 +106,22 @@ class AppleTree extends FruitTree {
   get color() {
     return this._color
   }
-  // Get some fruits
-  harvest() {
-    let good = 0
-    let bad = 0
 
+  produceFruits() {
+    let total = Math.round(Math.random()*30)
+    for(let i = 0; i < total; i++) {
+      let fruits = new Apple()
+      this._fruits.push(fruits) // mango
+    }
+    return this._fruits
+  }
+
+  produceColor() {
     let red = 0
     let green = 0
+    debugger
     for(let i = 0; i < this._fruits.length; i++) {
-      if(this._fruits[i].quality === 'good') {
-        good++;
-      } else {
-        bad++
-      }
-      
+      debugger
       if(this._fruits[i].color === 'red') {
         red++;
       } else {
@@ -134,7 +129,6 @@ class AppleTree extends FruitTree {
       }
     }
     
-    this._harvested = `${good} good, ${bad} bad`
     this._color = `${red} red, ${green} green`
   }
 }
@@ -142,7 +136,7 @@ class AppleTree extends FruitTree {
 class Apple extends Fruit {
   constructor() {
     super()
-    this._color = this.color()
+    this.color = this.color()
   }
 
   color() {
@@ -156,9 +150,8 @@ class Apple extends Fruit {
 }
 
 
-
 //--------------------------------------------
-//driver code untuk release 0
+// driver code untuk release 0
 let mango_tree = new MangoTree()
 let mango = new Mango()
 do {
@@ -169,10 +162,11 @@ do {
 } while (mango_tree.healthyStatus !== false)
 
 let apple_tree = new AppleTree()
-let apple = new AppleTree()
+let apple = new Apple()
 do {
   apple_tree.grow();
   apple_tree.produceFruits();
   apple_tree.harvest();
+  apple_tree.produceColor();
   console.log(`[Year ${apple_tree.age} Report] Height = ${apple_tree.height} | Fruits harvested = ${apple_tree.harvested} | Colors = ${apple_tree.color}`)
 } while (apple_tree.healthyStatus !== false)
