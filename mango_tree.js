@@ -1,77 +1,27 @@
 "use strict"
 
-// release 0
-
-class MangoTree {
-
-  // Initialize a new MangoTree
+const FruitTree = require('./fruit_tree');
+class MangoTree extends FruitTree.FruitTree {
   constructor(obj) {
-    this._age = obj.age
-    this._height = obj.height
-    this._fruits = obj.fruits
-    this._healthyStatus = obj.healtyStatus
-    this._harvested = obj.harvested
-
-  }
-
-  get age() {
-    return this._age
-  }
-
-  get height() {
-    return this._height
-  }
-
-  get fruits() {
-    return this._fruits
-  }
-
-  get healtyStatus() {
-    return this._healthyStatus
-  }
-
-  get harvested() {
-    return this._harvested
-  }
-
-
-  // Get current states here
-
-  // Grow the tree
-  grow() {
-  }
-
-  // Produce some mangoes
-  produceMangoes() {
-  }
-
-  // Get some fruits
-  harvest() {
-  }
-
-}
-
-class Mango {
-  // Produce a mango
-  constructor() {
+    super(obj)
   }
 }
 
-/**
-  * driver code untuk release 0
-  * let mangoTree = new MangoTree()
-  * do {
-  *   mangoTree.grow();
-  *   mangoTree.produceMangoes();
-  *   mangoTree.harverst();
-  *   console.log(`[Year ${tree.age} Report] Height = ${tree.height} | Fruits harvested = ${tree.harvested}`)
-  * } while (mangoTree.healthyStatus != false)
-  */
-
-// Release 1
-class AppleTree {}
-class Apple {}
-
-// Release 2
-class FruitTree {}
-class Fruit {}
+let obj = {
+  name: 'Mango',
+  age: 0,
+  height: 0,
+  fruits: 0,
+  healtyStatus: true,
+  harvested: '',
+  maxAge: 20,
+  maxAgeForHeight: 15,
+  growHeight: 0.32
+}
+let mangoTree = new MangoTree(obj)
+do {
+  mangoTree.grow();
+  mangoTree.produceFruits();
+  mangoTree.harverst();
+  console.log(`[Year ${mangoTree.age} Report] Height = ${mangoTree.height} | Fruits harvested = ${mangoTree.harvested}`)
+} while (mangoTree.healtyStatus)
