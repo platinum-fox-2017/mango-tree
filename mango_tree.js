@@ -8,6 +8,7 @@ class FruitTree {
         this._age = 0;
         this._height = 0;
         this._fruits = [];
+        this._matureAge = 0;
         this._healthyStatus = true;
         this._stopProduceAge = 0;
         this._stopGrowAge = 0;
@@ -40,13 +41,13 @@ class FruitTree {
     }
 
     harvest() {
-        // let mango = new Object();
+        let fruit = new Object();
         for (let i = 0; i < this._fruitProduced; i++) {
             if (Math.floor(Math.random() * 2)) {
-                var fruit = new Fruit('good');
+                fruit = new Fruit('good');
                 this._harvested.good++;
             } else {
-                var fruit = new Fruit('bad');
+                fruit = new Fruit('bad');
                 this._harvested.bad++;
             }
             this._fruits.push(fruit);
@@ -54,10 +55,8 @@ class FruitTree {
     }
 
     produceFruits() {
-        console.log(this._matureAge);
         if (this._age >= this._matureAge && this._age <= this._stopProduceAge) {
             this._fruitProduced = 1 + Math.floor(Math.random() * 10);
-            console.log(this._fruitProduced);
         }
     }
 
@@ -95,6 +94,8 @@ class MangoTree extends FruitTree {
         this._stopProduceAge = 23;
         this._stopGrowAge = 19;
         this._dieAge = 25;
+        this._matureAge = 4;
+
     }
 
 }
@@ -108,6 +109,7 @@ class AppleTree extends FruitTree {
         this._stopProduceAge = 20;
         this._stopGrowAge = 15;
         this._dieAge = 22;
+        this._matureAge = 2;
     }
 }
 class Apple extends Fruit {}
