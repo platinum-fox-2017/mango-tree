@@ -42,6 +42,7 @@ class FruitTree {
 
     harvest() {
         let fruit = new Object();
+
         for (let i = 0; i < this._fruitProduced; i++) {
             if (Math.floor(Math.random() * 2)) {
                 fruit = new Fruit('good');
@@ -86,6 +87,9 @@ class Fruit {
 }
 
 
+class Mango extends Fruit {}
+class Apple extends Fruit {}
+
 
 class MangoTree extends FruitTree {
     // Initialize a new MangoTree
@@ -100,9 +104,7 @@ class MangoTree extends FruitTree {
 
 }
 
-class Mango extends Fruit {}
 
-// Release 1
 class AppleTree extends FruitTree {
     constructor() {
         super();
@@ -112,10 +114,7 @@ class AppleTree extends FruitTree {
         this._matureAge = 2;
     }
 }
-class Apple extends Fruit {}
 
-
-// driver code untuk release 0
 let mangoTree = new MangoTree();
 console.log("Mango Tree: ");
 do {
