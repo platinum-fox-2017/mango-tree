@@ -62,7 +62,7 @@ class FruitTree {
     let hasil = Math.ceil(Math.random() * this.kapasitas)
     for(let i=0;i<hasil;i++){
     let getQuality=Math.floor(Math.random() * 2)
-    this.kumpulan.push(new Mango(getQuality))
+    this.kumpulan.push(new Fruit(getQuality))
     }
 
     return this
@@ -139,6 +139,7 @@ class Peach extends Fruit{
      console.log(`[Year ${mangoTree.umur} Report] Height = ${mangoTree.tinggi} | Mango harvested = ${mangoTree.panen}`)
    } while (mangoTree.status != false)
    console.log('The Mango Tree Has Met Its End\n')
+
    let appleTree = new AppleTree(8,15,8)
    do {
      appleTree.grow();
