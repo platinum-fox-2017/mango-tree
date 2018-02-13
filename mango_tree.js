@@ -41,17 +41,14 @@ class FruitTree {
     }
 
     harvest() {
-        let fruit = new Object();
-
         for (let i = 0; i < this._fruitProduced; i++) {
-            if (Math.floor(Math.random() * 2)) {
-                fruit = new Fruit('good');
+            this._fruits.push(new Fruit());
+            if(this._fruits[i].quality == 'good'){
                 this._harvested.good++;
-            } else {
-                fruit = new Fruit('bad');
+            }
+            else{
                 this._harvested.bad++;
             }
-            this._fruits.push(fruit);
         }
     }
 
@@ -78,7 +75,15 @@ class FruitTree {
 class Fruit {
     // Produce a mango
     constructor(quality) {
-        this._quality = quality;
+        this._quality = this.random_quality();
+    }
+
+    random_quality(){
+        if (Math.floor(Math.random() * 2)) {
+            return 'good'
+        } else {
+            return 'bad'
+        }
     }
 
     get quality() {
