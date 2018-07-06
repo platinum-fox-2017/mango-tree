@@ -1,7 +1,7 @@
 const FruitTree = require('./fruit_tree.js')
-const  Mango = require('./mango.js')
+const  Apple = require('./apple.js')
 
-class MangoTree extends FruitTree {
+class AppleTree extends FruitTree {
   constructor(age,height,fruits,harvest,healtyStatus) {
     super(age,height,fruits,harvest,healtyStatus)
   }
@@ -9,18 +9,18 @@ class MangoTree extends FruitTree {
   grow() {
     this._age ++
     this._height += Math.floor(Math.random()*4)
-    if(this._age > 19){
+    if(this._age > 10){
       this._healthStatus = false
     }
   }
 
   // Produce some mangoes
-  produceMangoes() {
-    let fruits = Math.round(Math.random()*15)
-    if(this._age > 3){
+  produceApples() {
+    let fruits = Math.round(Math.random()*10)
+    if(this._age > 2){
       for(let i = 0 ; i < fruits ; i++){
-        let mango = new Mango()
-        this._fruits.push(mango)
+        let apple = new Apple()
+        this._fruits.push(apple)
       }
     }
     return this._fruits
@@ -42,4 +42,4 @@ class MangoTree extends FruitTree {
   }
 }
 
-module.exports = MangoTree
+module.exports = AppleTree
